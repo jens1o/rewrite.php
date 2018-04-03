@@ -1,9 +1,13 @@
 language: php
 sudo: false
+cache:
+  directories:
+    - $HOME/.composer/cache
 php:
   - 7.2
   - nightly
-before_install:
-  - composer global require "squizlabs/php_codesniffer=3.*"
+install:
+  - composer install --prefer-dist --no-interaction
 script:
-  - phpcs -p --standard="PSR2" src
+  - vendor/bin/phpcs -p --standard="PSR2" src
+  - vendor/bin/phpunit
