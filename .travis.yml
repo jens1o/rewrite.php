@@ -1,0 +1,7 @@
+language: php
+sudo: false
+php:
+  - 7.2
+  - nightly
+script:
+  - phpcs -p --standard="PSR2" src
